@@ -4,9 +4,8 @@ class User < ApplicationRecord
   ## The :user role is added by default and shouldn't be included in this list.             ##
   ## The :root_admin can access any page regardless of access settings. Use with caution!   ##
   ## The multiple option can be set to true if you need users to have multiple roles.       ##
-  petergate(roles: [:site_admin, :demo_admin, :third_admin], multiple: true)                ##
+  petergate(roles: %i[site_admin demo_admin third_admin], multiple: true)                ##
   ############################################################################################ 
- 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -18,10 +17,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def first_name
-    self.name.split.first
+    name.split.first
   end
 
   def last_name
-    self.name.split.last
+    name.split.last
   end
 end
