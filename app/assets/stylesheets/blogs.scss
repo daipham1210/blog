@@ -1,19 +1,15 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "gritter";
-
+@import "simplemde.min";
+@import "github-markdown";
+@import "select2";
 /*
  * Globals
  */
 
-@media (min-width: 48em) {
-  html {
-    font-size: 18px;
-  }
-}
-
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #555;
 }
 
@@ -37,6 +33,50 @@ h6, .h6 {
   max-width: 60rem;
 }
 
+/*
+ * Header
+ */
+
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: bold;
+  // color: rgba(255,255,255,.5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.masthead-brand {
+  float: left;
+}
+.nav-masthead {
+  float: right;
+}
+.masthead {
+  width: 60rem;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  padding-top: 32px;
+}
+.app-nav span {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: black;
+}
 
 /*
  * Masthead for nav
@@ -58,13 +98,12 @@ h6, .h6 {
 }
 .nav-link:hover,
 .nav-link:focus {
-  color: #fff;
-  background-color: transparent;
+  color: black;
 }
 
 /* Active state gets a caret at the bottom */
 .nav-link.active {
-  color: #fff;
+  color: black;
 }
 .nav-link.active:after {
   position: absolute;
@@ -76,19 +115,28 @@ h6, .h6 {
   vertical-align: middle;
   content: "";
   border-right: .3rem solid transparent;
-  border-bottom: .3rem solid;
   border-left: .3rem solid transparent;
 }
 
 
 /*
  * Blog name and description
- */
+*/
 
 .blog-header {
   padding-bottom: 1.25rem;
   margin-bottom: 2rem;
   border-bottom: .05rem solid #eee;
+  ul {
+    padding-left: 0px;
+    list-style-type: none !important;
+    display: flex;
+    justify-content: space-between;
+    li {
+      color: rgba(0,0,0,.54) !important;
+    }
+  }
+
 }
 .blog-title {
   margin-bottom: 0;
@@ -102,7 +150,7 @@ h6, .h6 {
 
 @media (min-width: 40em) {
   .blog-title {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -203,7 +251,9 @@ h6, .h6 {
 .blog-sidebar-source {
   margin-top: 20px;
 }
-
+.blog-body {
+  color: #0A0A0A; 
+}
 .blog-body img {
   width: 100%;
 }
@@ -235,4 +285,14 @@ h6, .h6 {
 .topic-index > .card {
   margin: 10px;
   padding: 20px;
+}
+
+.blog-title {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.blog-caption {
+  color: rgba(0,0,0,.54);
+  font-size: 14px;
+  margin-bottom: 30px;
 }

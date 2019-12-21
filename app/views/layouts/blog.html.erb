@@ -6,34 +6,30 @@
 
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab" rel="stylesheet">
+    <link href=“https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,500,500i,700,900i&display=swap&subset=vietnamese” rel=“stylesheet”>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 
-    <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'blog_sidebar', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'blog', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-    <%= render 'shared/blog_nav' %>
+    <%= render "shared/application_nav" %>
     <%= render 'shared/blog_masthead' %>
 
     <div class="container">
-
       <div class="row">
-
         <%= yield %>
-
-        <%= render 'shared/blog_sidebar' %>
       </div>
-
-      <%= render 'shared/blog_footer' %>
 
       <%= alerts %>
     </div>
+    <%= render 'shared/blog_footer' %>
   </body>
 </html>

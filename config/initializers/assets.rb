@@ -9,6 +9,6 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( blogs.scss )
-Rails.application.config.assets.precompile += %w( portfolios.scss )
-Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts")
+Rails.application.config.assets.precompile += %w[blogs.scss simplemde.min.js blog.js config_select2.js]
+Rails.application.config.assets.precompile += %w[portfolios.scss blog_sidebar.scss github-markdown.scss]
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
