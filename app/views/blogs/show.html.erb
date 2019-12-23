@@ -1,10 +1,22 @@
-<div class="col-sm-8 blog-main">
+<div class="col-sm-12 blog-main">
+  <h2 class="blog-title"><%= @blog.title %></h2>
+  
+  <% if logged_in?(:site_admin) %>
+    <%= render 'blog_breadcrumb' %>
+  <% end%>
 
-  <h2><%= @blog.title %></h2>
+  <div class="blog-caption">
+    <span><%= @blog.created_at.strftime("%b %d, %Y") %></span>
+    <span>・7 min read</span>
+  </div>
 
-  <%= render 'blog_breadcrumb' %>
+  <div class="blog-tags">
+    <% @tags.each do |tag| %>
+      <%= link_to tag.name, '#', class: 'tag', style: "color: #{tag.color}; background: #{tag.background}" %>
+    <% end%>
+  </div>
 
-  <div class="blog-body">
+  <div class="blog-body markdown-body">
     <%= markdown @blog.body %>
   </div>
 
@@ -14,3 +26,6 @@
     <%= render @blog.comments %>
   </div>
 </div>
+<script>
+var simplemde = new SimpleMDE();
+</script>

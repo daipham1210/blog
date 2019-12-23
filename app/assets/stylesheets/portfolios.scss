@@ -3,8 +3,8 @@
 @import "gritter";
 
 @font-face {
-  font-family: 'Lato';
-  src:font-url('Lato-Regular.ttf');
+  font-family: 'Montserrat';
+  src:font-url('Montserrat-Regular.ttf');
 }
 
 @font-face {
@@ -14,7 +14,7 @@
 
 body {
   min-height: 75rem; /* Can be removed; just added for demo purposes */
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {

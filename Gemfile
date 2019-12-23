@@ -25,6 +25,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop', '~> 0.77.0'
 end
 
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
@@ -32,6 +33,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-aws', '~> 1.4'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
+gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'devcamp_view_tool', '~> 0.1.0'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.2'
@@ -42,7 +44,11 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
+
 gem 'redcarpet', '~> 3.4'
+gem 'pygments.rb', '~> 0.6.3' 
+gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
+
 gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'twitter', '~> 6.1'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
