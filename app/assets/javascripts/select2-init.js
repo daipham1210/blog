@@ -2,6 +2,7 @@ window.Select2 = {
   initialize: function() {
     var seletedValue = $(".select2").attr('selected_value');
     if(seletedValue && seletedValue != '') {
+      seletedValue = seletedValue.split(',')
       seletedValue.forEach(value => {
       var $newOption = $("<option selected='selected'></option>").val(value).text(value)
         $(".select2").append($newOption).trigger('change');
