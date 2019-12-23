@@ -29,8 +29,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.select :tag_list, Tag.all.map { |u| [u.name, u.name] }, {}, multiple: true, 
-                 class: 'form-control select2' %>
+    <%= f.select :tag_list, @tags, { include_hidden: false }, multiple: true, 
+                            class: 'form-control select2', selected_value: @selected_tags %>
   </div>
 
   <div class="form-group">
@@ -43,5 +43,6 @@
 <% end %>
 
 <script>
-var simplemde = new SimpleMDE();
+  SimpleMde.initialize();
+  Select2.initialize();
 </script>

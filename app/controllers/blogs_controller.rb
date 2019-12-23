@@ -16,8 +16,9 @@ class BlogsController < ApplicationController
 
   def show
     if logged_in?(:site_admin) || @blog.published?
-      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @blog    = Blog.includes(:comments).friendly.find(params[:id])
       @comment = Comment.new
+      @tags    = @blog.tag_list
 
       @page_title = @blog.title
       @seo_keywords = @blog.body
@@ -27,10 +28,14 @@ class BlogsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all.map { |u| [u.name, u.name] }
     @blog = Blog.new
   end
 
-  def edit; end
+  def edit
+    @tags = Tag.all.map { |u| [u.name, u.name] }
+    @selected_tags = @blog.tags.pluck(:name).join(',')
+  end
 
   def create
     @blog = Blog.new(blog_params)

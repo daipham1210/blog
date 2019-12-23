@@ -10,6 +10,12 @@
     <span>・7 min read</span>
   </div>
 
+  <div class="blog-tags">
+    <% @tags.each do |tag| %>
+      <%= link_to tag.name, '#', class: 'tag', style: "color: #{tag.color}; background: #{tag.background}" %>
+    <% end%>
+  </div>
+
   <div class="blog-body markdown-body">
     <%= markdown @blog.body %>
   </div>

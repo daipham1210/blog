@@ -18,4 +18,4 @@
 //= require bootstrap-sprockets
 //= require simplemde.min
 //= require select2
-//= require config_select2
+//= require select2-init

@@ -292,7 +292,20 @@ h6, .h6 {
   margin-bottom: 30px;
 }
 .blog-caption {
-  color: rgba(0,0,0,.54);
+  color: #6c757d;
   font-size: 14px;
+  margin-bottom: 10px;
+}
+.blog-tags {
   margin-bottom: 30px;
+  .tag {
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 5px 3px;
+    border-radius: 2px;
+    background: #d6d9e0;
+    margin-right: 2px;
+  }
 }

@@ -23,7 +23,7 @@ class Blog < ApplicationRecord
     order('created_at DESC')
   end
 
-  def all_tags
+  def tag_list
     tags.select(:name, :background, :color)
   end
 
