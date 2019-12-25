@@ -23,29 +23,13 @@ module ApplicationHelper
   def nav_items
     [
       {
-        url: root_path,
-        title: 'Home'
-      },
-      {
-        url: about_me_path,
-        title: 'About Me'
-      },
-      {
-        url: contact_path,
-        title: 'Contact'
-      },
-      {
         url: blogs_path,
         title: 'Blog'
       },
       {
-        url: portfolios_path,
-        title: 'Portfolio'
-      },
-      {
-        url: tech_news_path,
-        title: 'Tech News'
-      },
+        url: about_me_path,
+        title: 'About Me'
+      }
     ]
   end
 
@@ -74,5 +58,4 @@ module ApplicationHelper
   def alert_generator msg
     js add_gritter(msg, title: "Dai Pham Portfolio", sticky: false)
   end
-
 end

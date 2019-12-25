@@ -19,13 +19,4 @@
   <div class="blog-body markdown-body">
     <%= markdown @blog.body %>
   </div>
-
-  <%= render 'comments/comment_form' %>
-
-  <div id="comments" data-blog-id="<%= @blog.id %>">
-    <%= render @blog.comments %>
-  </div>
 </div>
-<script>
-var simplemde = new SimpleMDE();
-</script>

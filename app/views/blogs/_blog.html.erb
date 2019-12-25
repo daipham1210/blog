@@ -2,8 +2,5 @@
   <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
   <%= render partial: 'blogs/admin_actions', locals: { blog: blog } %>
-  <p>
-    <%= truncate(blog.body, length: 250, escape: false) %>
-    <span class="continue-reading"><%= link_to "Continue reading", blog %></span>
-  </p>
+  <p class="blog-post-desc"><%= blog.description %></p>
 </div>

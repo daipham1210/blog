@@ -47,7 +47,6 @@ gem 'petergate', '~> 1.7'
 
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
-gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'twitter', '~> 6.1'

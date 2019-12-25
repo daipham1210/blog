@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title><%= @page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'about_me', "https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,500,500i,700,900i&display=swap&subset=vietnamese",
+        media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'header', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render "shared/application_nav" %>
+    <div class="main">
+      <div class="main-cv">
+        <div class="main-cv-info">
+          <div class="main-cv-info_container">
+            <div class="info-group">
+              <div class="img-avatar_wrapper">
+                <%= image_tag 'avatar.JPG', class: "img-avatar", alt: "avatar" %>
+              </div>
+
+              <span class="main-cv-info--title">Pham Duy Dai</span>
+              <span class="main-cv-info--subtitle"
+                >Breakfast procuring no end happiness allowance assurance frank.
+                Met simplicity nor difficulty unreserved who. Entreaties mr
+                conviction dissimilar me astonished estimating cultivated.</span
+              >
+              <div class="social-network">
+                <a href="#" class="social-link">
+                  <%= image_tag 'icons/github-icon.svg', class: "social-icon", alt: "github" %>
+                </a>
+                <a href="#" class="social-link">
+                  <%= image_tag 'icons/fb-icon.svg', class: "social-icon", alt: "facebook" %>
+                </a>
+                <a href="#" class="social-link">
+                  <%= image_tag 'icons/twitter-icon.svg', class: "social-icon", alt: "twitter" %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-cv__tech">
+          <span class="block-title right">PERSONAL INFO</span>
+          <div class="main-cv__tech_container">
+            <div class="main-cv__tech_careerPath">
+              <div class="main-cv__tech_careerPath">
+                <span class="block-title subtitle"
+                  >Full Name: Pham Duy Dai</span
+                >
+                <li>Date of birth: 12/10/1995</li>
+                <li>Gender: Male</li>
+                <li>Phone: 0835.221.529</li>
+                <li>Email: daipham1210@gmail.com</li>
+                <li>Website: phamduydai.com</li>
+              </div>
+              <div class="main-cv__tech_careerPath">
+                <span class="block-title subtitle">OBJECTIVE</span>
+                <li>Become Technical Lead in 5 years</li>
+                <li>
+                  Understand CI/CD progress, implement container with Docker
+                </li>
+                <li>Become Technical Architecture in 10 years</li>
+                <li>Improve English skill</li>
+              </div>
+            </div>
+            <div class="main-cv__tech_skill">
+              <span class="block-title subtitle">Programing Language</span>
+              <div class="skill-group">
+                <div class="skill-block">
+                  <%= image_tag 'icons/js-icon.svg', class: "skill-block__img", alt: "js" %>
+                  <span class="skill-block__name">Javascript</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/ror-icon.svg', class: "skill-block__img", alt: "ruby" %>
+                  <span class="skill-block__name">Ruby on Rails</span>
+                </div>
+              </div>
+              <!-- other bloc skill -->
+              <span class="block-title subtitle">Framework/Libary</span>
+              <div class="skill-group">
+                <div class="skill-block">
+                  <%= image_tag 'icons/react-icon.svg', class: "skill-block__img", alt: "reactjs" %>
+                  <span class="skill-block__name">ReactJS</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/nodejs-icon.svg', class: "skill-block__img", alt: "nodejs" %>
+                  <span class="skill-block__name">NodeJS</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/nextjs.ico', class: "skill-block__img", alt: "nextjs" %>
+                  <span class="skill-block__name">NextJS</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/redux-icon.svg', class: "skill-block__img", alt: "redux" %>
+                  <span class="skill-block__name">ReduxJS</span>
+                </div>
+              </div>
+              <!-- other bloc skill -->
+              <span class="block-title subtitle">Database</span>
+              <div class="skill-group">
+                <div class="skill-block">
+                  <%= image_tag 'icons/mysql-icon.svg', class: "skill-block__img", alt: "mysql" %>
+                  <span class="skill-block__name">MySQL</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/postgresql-icon.svg', class: "skill-block__img", alt: "postgresql" %>
+                  <span class="skill-block__name">PostgreSQL</span>
+                </div>
+                <div class="skill-block">
+                  <%= image_tag 'icons/mongodb-icon.svg', class: "skill-block__img", alt: "mongodb" %>
+                  <span class="skill-block__name">MongoDB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="main-cv__edu">
+          <span class="block-title right">EDUCATION</span>
+          <div class="main-cv__edu_container">
+            <div class="main-cv__edu_item">
+                <img class="main-cv__edu--img" src="./assets/logo-cit.png" alt="logo cit"/>
+                <div class="main-cv__edu--info">
+                  <span class="edu-name">Da Nang University of Technology</span>
+                  <span class="edu-subject">Major: Information Technology</span>
+                  <span class="edu-date">From September 2013- June 2018</span>
+                  <span class="btn btn-success">Graduated</span>
+                </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="main-cv__timeline">
+          <span class="block-title right">WORK EXPERIENCE</span>
+          <div class="main-cv__timeline_wrapper">
+            <div class="main-cv__timeline_container">
+              <div class="main-cv__timeline--item left">
+                <div class="timeline-item ">
+                  <span class="timeline-item__year mobile_only"
+                    >July 2018- March 2019</span
+                  >
+                  <span class="timeline-item--title"> Neolab Da Nang</span>
+                  <span class="timeline-item--subtitle"
+                    >Ruby on Rails developer</span
+                  >
+
+                  <span class="timeline-item--content">
+                    <li>Writing APIs</li>
+                    <li>Research gem and implement new features</li>
+                  </span>
+                </div>
+              </div>
+              <div class="main-cv__timeline--item desktop_only">
+                <span class="timeline-item__year"
+                  >September 2017- April 2018</span
+                >
+              </div>
+            </div>
+            <div class="main-cv__timeline_container">
+              <div class="main-cv__timeline--item desktop_only">
+                <span class="timeline-item__year left"
+                  >July 2018- March 2019</span
+                >
+              </div>
+              <div class="main-cv__timeline--item right">
+                <div class="timeline-item right">
+                  <span class="timeline-item__year mobile_only"
+                    >April 2019 - Present</span
+                  >
+                  <span class="timeline-item--title">NUS Technology</span>
+                  <span class="timeline-item--subtitle"
+                    >Ruby on Rails & ReactJS developer</span
+                  >
+                  <span class="timeline-item--content">
+                    <li>Research gem and implement new features</li>
+                    <li>
+                      Building a web applications using Rail API and ReactJS
+                      from design
+                    </li>
+                    <li>Configured and deployed using Heroku</li>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="main-cv__timeline_container">
+              <div class="main-cv__timeline--item left">
+                <div class="timeline-item left">
+                  <span class="timeline-item__year mobile_only"
+                    >April 2019 - Present</span
+                  >
+                  <span class="timeline-item--title">Dinovative Inc</span>
+                  <span class="timeline-item--subtitle"
+                    >Lead Back End Ruby on Rails</span
+                  >
+                  <span class="timeline-item--content">
+                    <li>Implement API gateway</li>
+                    <li>Delopy CI/CD and scale webapp with docker container</li>
+                    <li>Secure database and user data</li>
+                    <li>
+                      Implement Payment method, and connect to third party
+                    </li>
+                  </span>
+                </div>
+              </div>
+              <div class="main-cv__timeline--item desktop_only">
+                <span class="timeline-item__year">April 2019 - Present</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

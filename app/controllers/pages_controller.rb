@@ -1,17 +1,6 @@
 class PagesController < ApplicationController
-  def home
-    @posts = Blog.all
-    @skills = Skill.all
-  end
-
+  layout 'about'
   def about
-    @skills = Skill.all
-  end
-
-  def contact
-  end
-
-  def tech_news
-    @tweets = SocialTool.twitter_search
+    @page_title = 'My Portfolio'
   end
 end
