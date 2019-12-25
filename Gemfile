@@ -46,7 +46,7 @@ gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 
 gem 'redcarpet', '~> 3.4'
-gem 'pygments.rb', '~> 0.6.3'
+gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'twitter', '~> 6.1'
