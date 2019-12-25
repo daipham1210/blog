@@ -28,6 +28,8 @@ class Blog < ApplicationRecord
   end
 
   def tag_list=(names)
-    self.tags = names.map { |n| Tag.where(name: n).first_or_create! }
+    return unless names
+
+    self.tags = names.map { |n| Tag.find_by(name: n) }
   end
 end
