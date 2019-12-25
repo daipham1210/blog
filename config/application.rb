@@ -19,5 +19,6 @@ Bundler.require(*Rails.groups)
 module DevcampPortfolio
   class Application < Rails::Application
     config.eager_load_paths << "#{Rails.root}/lib"
+    config.i18n.available_locales = [:en, :vi]
   end
 end

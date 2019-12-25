@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
-  before_action :set_sidebar_topics, except: %i[update create destroy toggle_status]
+  before_action :set_tag, only: %i[new edit create update]
+  before_action :set_sidebar_topics, except: %i[destroy toggle_status]
   layout 'blog'
   access all: %i[show index], user: { except: %i[destroy new create update edit toggle_status] },
          site_admin: :all
@@ -28,12 +29,10 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @tags = Tag.all.map { |u| [u.name, u.name] }
     @blog = Blog.new
   end
 
   def edit
-    @tags = Tag.all.map { |u| [u.name, u.name] }
     @selected_tags = @blog.tags.pluck(:name).join(',')
   end
 
@@ -81,6 +80,10 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = Blog.friendly.find(params[:id])
+  end
+
+  def set_tag
+    @tags = Tag.all.map { |u| [u.name, u.name] }
   end
 
   def blog_params
