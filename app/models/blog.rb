@@ -7,9 +7,10 @@ class Blog < ApplicationRecord
 
   # Associations
   belongs_to :topic
-  has_many :comments, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+
+  acts_as_commontable dependent: :destroy
 
   def self.special_blogs
     all

@@ -8,21 +8,22 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = if logged_in?(:site_admin)
-               Blog.recent.page(params[:page]).per(5)
+               Blog.recent.page_kaminari(params[:page]).per(5)
              else
-               Blog.published.recent.page(params[:page]).per(5)
+               Blog.published.recent.page_kaminari(params[:page]).per(5)
              end
     @page_title = 'My Portfolio Blog'
   end
 
   def show
     if logged_in?(:site_admin) || @blog.published?
-      @blog    = Blog.includes(:comments).friendly.find(params[:id])
-      @comment = Comment.new
+      @blog    = Blog.friendly.find(params[:id])
       @tags    = @blog.tag_list
 
       @page_title = @blog.title
       @seo_keywords = @blog.body
+      @commontable = @blog
+      commontator_thread_show(@commontable)
     else
       redirect_to blogs_path, notice: 'You are not authorized to access this page'
     end

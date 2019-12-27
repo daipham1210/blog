@@ -1,0 +1,110 @@
+.commontator .comment {
+  & {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #d6d6d7;
+  }
+
+  .body blockquote {
+    font-weight: normal;
+    color: #000;
+  }
+
+  .section {
+  	clear: both;
+
+    margin: 5px 7px;
+  }
+
+  .actions {
+    font-size: 90%;
+  }
+
+  .avatar {
+    float: left;
+
+    margin-right: 7px;
+  }
+
+  .votes {
+    text-align: center;
+
+    input, img {
+      background-color: transparent;
+    }
+  }
+
+  .upvote, .downvote {
+    display: block;
+
+    height: 18px;
+
+    margin: 5px 0;
+  }
+
+  .like {
+    float: left;
+
+    margin: 0 5px;
+  }
+
+  .vote-count {
+    font-size: 110%;
+  }
+
+  .body {
+    overflow: hidden;
+
+    blockquote {
+      border-color: #CCC;
+      padding: 5px 7px;
+
+      background-color: #EEE;
+
+      font-style: italic;
+    }
+  }
+
+  .reply, .timestamp {
+    font-size: 90%;
+  }
+
+  .timestamp {
+    color: #666;
+  }
+
+  .error-explanation {
+    margin-bottom: 10px;
+
+    h3 {
+      margin-top: 5px;
+    }
+
+    ul {
+      list-style-position: inside;
+    }
+  }
+
+  .pagination {
+    margin: 10px 7px;
+  }
+  .author-avatar {
+    width: 25px;
+    border-radius: 100%;
+    height: 25px;
+    margin-right: 5px;
+  }
+  .section.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .created-at {
+    color: #9b9b9b;
+    font-size: 14px;
+  }
+}
+
