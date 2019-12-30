@@ -17,7 +17,6 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
@@ -50,7 +49,8 @@ gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
-gem 'twitter', '~> 6.1'
+gem 'pry-rails', '~> 0.3.9'
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 ruby '2.6.3'
