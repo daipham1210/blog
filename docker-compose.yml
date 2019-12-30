@@ -1,9 +1,11 @@
 version: '3'
 services:
-  database:
-    image: postgres:12.1
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
   web:
     build:
       context: .
@@ -13,7 +15,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - database
-
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres@db
 volumes:
-  db_data:
+  pgdata:
