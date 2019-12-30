@@ -7,9 +7,15 @@ class Blog < ApplicationRecord
 
   # Associations
   belongs_to :topic
-  has_many :comments, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
+  has_many :comments, as: :creator, class_name: 'Commontator::Comment'
+
+  acts_as_commontable dependent: :destroy
+
+  scope :public_list, -> { includes(:tags).order('blogs.created_at DESC') }
+  scope :admin_list, -> { includes(:tags).published.order('blogs.created_at DESC') }
+  scope :find_tag, ->(tag_name) { joins(:tags).where("tags.name = '#{tag_name}'") }
 
   def self.special_blogs
     all
@@ -28,6 +34,8 @@ class Blog < ApplicationRecord
   end
 
   def tag_list=(names)
-    self.tags = names.map { |n| Tag.where(name: n).first_or_create! }
+    return unless names
+
+    self.tags = names.map { |n| Tag.find_by(name: n) }
   end
 end

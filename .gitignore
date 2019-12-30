@@ -22,3 +22,8 @@
 .rbenv-gemsets
 .rubocop.yml
 .rubocop_todo.yml
+.idea
+.vscode
+.rakeTasks
+.DS_Store
+.generators

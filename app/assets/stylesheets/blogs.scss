@@ -4,13 +4,15 @@
 @import "simplemde.min";
 @import "github-markdown";
 @import "select2";
+@import "commontator/application";
+@import "commontator/comments";
 /*
  * Globals
  */
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: #555;
+  color: #0A0A0A;
   line-height: 1.5;
   p {
     margin-bottom: 20px;
@@ -180,6 +182,9 @@ h6, .h6 {
   color: rgba(0,0,0,.54);
   font-size: 18px;
 }
+.blog-post-tags {
+  margin-bottom: 10px;
+}
 
 
 /*
@@ -280,16 +285,16 @@ h6, .h6 {
 }
 .blog-tags {
   margin-bottom: 30px;
-  .tag {
-    display: inline-block;
-    border-radius: 3px;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 2px 5px 3px;
-    border-radius: 2px;
-    background: #d6d9e0;
-    margin-right: 2px;
-  }
+}
+.tag {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 2px 5px 3px;
+  border-radius: 2px;
+  background: #d6d9e0;
+  margin-right: 2px;
 }
 code {
   color: #0A0A0A;

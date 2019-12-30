@@ -19,3 +19,4 @@
 //= require simplemde.min
 //= require select2
 //= require select2-init
+//= require commontator/application

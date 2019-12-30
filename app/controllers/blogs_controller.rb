@@ -1,39 +1,39 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
-  before_action :set_sidebar_topics, except: %i[update create destroy toggle_status]
+  before_action :set_tag, only: %i[new edit create update]
+  before_action :set_sidebar_topics, except: %i[destroy toggle_status]
   layout 'blog'
   access all: %i[show index], user: { except: %i[destroy new create update edit toggle_status] },
          site_admin: :all
 
   def index
     @blogs = if logged_in?(:site_admin)
-               Blog.recent.page(params[:page]).per(5)
+               Blog.admin_list.page_kaminari(params[:page]).per(5)
              else
-               Blog.published.recent.page(params[:page]).per(5)
+               Blog.public_list.page_kaminari(params[:page]).per(5)
              end
     @page_title = 'My Portfolio Blog'
   end
 
   def show
     if logged_in?(:site_admin) || @blog.published?
-      @blog    = Blog.includes(:comments).friendly.find(params[:id])
-      @comment = Comment.new
+      @blog    = Blog.friendly.find(params[:id])
       @tags    = @blog.tag_list
 
       @page_title = @blog.title
       @seo_keywords = @blog.body
+      @commontable = @blog
+      commontator_thread_show(@commontable)
     else
       redirect_to blogs_path, notice: 'You are not authorized to access this page'
     end
   end
 
   def new
-    @tags = Tag.all.map { |u| [u.name, u.name] }
     @blog = Blog.new
   end
 
   def edit
-    @tags = Tag.all.map { |u| [u.name, u.name] }
     @selected_tags = @blog.tags.pluck(:name).join(',')
   end
 
@@ -77,10 +77,23 @@ class BlogsController < ApplicationController
     redirect_to blogs_url, notice: 'Post status has been updated.'
   end
 
+  def tags
+    @blogs = if logged_in?(:site_admin)
+               Blog.admin_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+             else
+               Blog.public_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+             end
+    render 'index'
+  end
+
   private
 
   def set_blog
     @blog = Blog.friendly.find(params[:id])
+  end
+
+  def set_tag
+    @tags = Tag.all.map { |u| [u.name, u.name] }
   end
 
   def blog_params
