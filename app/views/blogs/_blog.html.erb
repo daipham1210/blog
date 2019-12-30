@@ -1,6 +1,11 @@
 <div class="blog-post blog-body">
   <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
+  <div class="blog-post-tags">
+    <% blog.tags.each do |tag| %>
+      <%= link_to "##{tag.name}", "/tags/#{tag.name}", class: 'tag', style: "color: #{tag.color}; background: #{tag.background}" %>
+    <% end%>
+  </div>
   <%= render partial: 'blogs/admin_actions', locals: { blog: blog } %>
   <p class="blog-post-desc"><%= blog.description %></p>
 </div>

@@ -24,7 +24,7 @@
   </span>
 
   <span id="commontator-comment-<%= comment.id %>-created-at" class="created-at">
-    <%= time_ago_in_words(comment.created_at) %>
+    <%= comment.created_at.strftime(" %b %d, %Y %H:%M") %>
   </span>
 </div>
 
@@ -42,7 +42,6 @@
   <span id="commontator-comment-<%= comment.id %>-votes" class="votes">
     <%= render partial: 'commontator/comments/votes', locals: { comment: comment, user: user } %>
   </span>
-
   <% if !comment.is_deleted? && comment.parent.nil? %>
     <span id="commontator-comment-<%= comment.id %>-reply-link" class="reply">
       <%=
@@ -54,14 +53,6 @@
       %>
     </span>
   <% end %>
-
-  <span id="commontator-comment-<%= comment.id %>-created-timestamp" class="timestamp">
-    <%= comment.created_timestamp %>
-  </span>
-
-  <span id="commontator-comment-<%= comment.id %>-updated-timestamp" class="timestamp">
-    <%= comment.updated_timestamp if comment.is_modified? %>
-  </span>
 </div>
 
 <div id="commontator-comment-<%= comment.id %>-children" class="children">
@@ -77,14 +68,3 @@
   <% end %>
 </div>
 
-<div id="commontator-comment-<%= comment.id %>-pagination" class="pagination">
-  <div id="commontator-comment-<%= comment.id %>-will-paginate" class="will-paginate">
-    <%= will_paginate nested_children,
-                      renderer: Commontator::LinkRenderer,
-                      name: t('commontator.comment.status.reply_pages'),
-                      remote: true,
-                      params: { controller: 'commontator/comments',
-                                action: 'show',
-                                id: comment.id } %>
-  </div>
-</div>

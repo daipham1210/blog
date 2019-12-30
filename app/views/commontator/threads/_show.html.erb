@@ -95,7 +95,18 @@
   </div>
 
   <% if thread.config.comment_order == :l %>
-    <%= render partial: 'commontator/threads/reply', locals: { thread: thread, user: user } %>
+    <% unless user.is_a?(GuestUser) %>
+      <%= render partial: 'commontator/threads/reply', locals: { thread: thread, user: user } %>
+    <% else %>
+      <div class="text-center">
+        <%= button_to '/auth/github', class: 'btn-logo-github' do %>
+          <span>Login với 
+            <%= image_tag 'icons/github-icon.svg', class: "social-icon", alt: "github" %>
+            để bắt đầu
+          </span>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

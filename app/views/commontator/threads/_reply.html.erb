@@ -21,7 +21,7 @@
       <% end %>
     </div>
 
-     <% if @commontator_new_comment.nil? %>
+    <% if @commontator_new_comment.nil? %>
       <div id="commontator-thread-<%= thread.id %>-new-comment-link" class="new-comment">
         <%= link_to t('commontator.comment.actions.new'),
             commontator.new_thread_comment_path(thread),

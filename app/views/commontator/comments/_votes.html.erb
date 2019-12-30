@@ -16,22 +16,22 @@
   <span id="commontator-comment-<%= comment.id %>-<%= vtype %>" class="<%= vtype %>">
     <% if can_vote && (vote.blank? || !vote.vote_flag) %>
       <%= form_tag commontator.upvote_comment_path(comment),
-            method: :put,
+            method: :put, class: "form-vote",
             remote: true do %>
-        <%= button_tag(type: "submit") do %>
-          <i class="fa fa-chevron-up"></i>
+        <%= button_tag type: "submit" do %>
+          <%= image_tag 'icons/heart-regular.svg', class: "btn-vote", alt: "like" %>
         <% end %>
       <% end %>
     <% elsif can_vote %>
       <%= form_tag commontator.unvote_comment_path(comment),
-            method: :put,
+            method: :put, class: "form-vote",
             remote: true do %>
-        <%= button_tag(type: "submit") do %>
-          <i class="fa fa-chevron-up"></i>
+        <%= button_tag type: "submit" do %>
+          <%= image_tag 'icons/heart-regular.svg', class: "btn-vote", alt: "like" %>
         <% end %>
       <% end %>
     <% else %>
-      <i class="fa fa-chevron-up"></i>
+      <%= image_tag 'icons/heart-regular.svg', class: "btn-vote", alt: "like" %>
     <% end %>
   </span>
   <% end %>

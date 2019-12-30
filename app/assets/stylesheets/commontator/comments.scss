@@ -1,15 +1,13 @@
-.commontator .comment {
-  & {
+.commontator {
+  .comment {
     padding: 1.5rem;
     margin-bottom: 1rem;
-    background-color: #fff;
-    border-radius: 3px;
-    border: 1px solid #d6d6d7;
+    background-color: #f0f0f0;
   }
 
   .body blockquote {
     font-weight: normal;
-    color: #000;
+    color: #0A0A0A;
   }
 
   .section {
@@ -22,6 +20,13 @@
     font-size: 90%;
   }
 
+  .author {
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #0A0A0A;
+    }
+  }
   .avatar {
     float: left;
 
@@ -103,8 +108,35 @@
     margin-bottom: 10px;
   }
   .created-at {
-    color: #9b9b9b;
+    // color: #9b9b9b;
     font-size: 14px;
   }
+  .section.bottom {
+    display: flex;
+    align-items: center;
+    &, a, i {
+      color: #0A0A0A;
+    }
+  }
+  .votes {
+    .vote-count {
+      font-weight: 400;
+    }
+    margin-right: 5px;
+  }
+}
+.comment-child {
+  border-top: .8px solid rgba(0,0,0,.1) !important;
+  padding-top: 0px !important;
 }
 
+.btn-vote {
+  width: 16px;
+  height: 16px;
+}
+
+.form-vote {
+  button[type=submit] {
+    background-color: transparent;
+  }
+}

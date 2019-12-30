@@ -28,9 +28,10 @@
   }
 
   .status {
-    font-size: 120%;
-    font-weight: bold;
-    font-style: normal;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
   }
 
   .comment-list {
@@ -105,4 +106,23 @@
   .submit {
     margin: 10px 0;
   }
+}
+
+.btn-logo-github {
+  display: inline-block;
+  border: 1px solid #222 !important;
+  padding: 10px 15px !important;
+  color: #222;
+  cursor: pointer;
+  span {
+    display: flex;
+    align-items: center;
+    img {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+.new-comment-input {
+  padding: 1rem !important;
 }

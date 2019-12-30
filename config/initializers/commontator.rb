@@ -172,7 +172,7 @@ Commontator.configure do |config|
   #   :l  (likes)
   #   :ld (likes/dislikes)
   # Default: :n
-  config.comment_voting = :l
+  config.comment_voting = :n
 
   # vote_count_proc
   # Type: Proc

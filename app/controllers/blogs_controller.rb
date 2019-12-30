@@ -8,9 +8,9 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = if logged_in?(:site_admin)
-               Blog.recent.page_kaminari(params[:page]).per(5)
+               Blog.admin_list.page_kaminari(params[:page]).per(5)
              else
-               Blog.published.recent.page_kaminari(params[:page]).per(5)
+               Blog.public_list.page_kaminari(params[:page]).per(5)
              end
     @page_title = 'My Portfolio Blog'
   end
@@ -75,6 +75,15 @@ class BlogsController < ApplicationController
     end
 
     redirect_to blogs_url, notice: 'Post status has been updated.'
+  end
+
+  def tags
+    @blogs = if logged_in?(:site_admin)
+               Blog.admin_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+             else
+               Blog.public_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+             end
+    render 'index'
   end
 
   private

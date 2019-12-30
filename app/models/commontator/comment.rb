@@ -73,7 +73,8 @@ class Commontator::Comment < ActiveRecord::Base
   end
 
   def created_timestamp
-    # time_ago_in_words(created_at)
+    I18n.t 'commontator.comment.status.created_at',
+           created_at: I18n.l(created_at, format: :commontator)
   end
 
   def updated_timestamp

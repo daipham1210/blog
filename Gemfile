@@ -47,7 +47,6 @@ gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 
 gem 'omniauth-github', github: 'intridea/omniauth-github'
-gem 'acts_as_votable', '~> 0.12.1'
 
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
