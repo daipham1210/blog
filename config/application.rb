@@ -20,5 +20,7 @@ module DevcampPortfolio
   class Application < Rails::Application
     config.eager_load_paths << "#{Rails.root}/lib"
     config.i18n.available_locales = [:en, :vi]
+    config.assets.js_compressor = Uglifier.new(harmony: true)
+
   end
 end
