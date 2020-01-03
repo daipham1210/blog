@@ -7,7 +7,7 @@ gitBranch="master"
 hostDockerRegistry="127.0.0.1"
 portDockerRegistry="5000"
 version="latest"
-network="daipham_blog"
+network="daiphamblog"
 
 changeDir() {
 	cd $path_app/$gitProjectName
