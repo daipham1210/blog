@@ -6,11 +6,11 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-    container_name: daiphamblog
   web:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: daiphamblog
     volumes:
       - .:/app
     ports:
