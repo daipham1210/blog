@@ -7,6 +7,7 @@ gitBranch="master"
 hostDockerRegistry="127.0.0.1"
 portDockerRegistry="5000"
 version="latest"
+network="daipham_blog"
 
 changeDir() {
 	cd $path_app/$gitProjectName
@@ -116,7 +117,7 @@ deleteOldImage() {
 }
 
 dockerConnectNetwork() {
-  docker network connect $app $app
+  docker network connect $network $app
 }
 
 
