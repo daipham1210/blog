@@ -6,42 +6,29 @@
 
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-    <link href=“https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,500,500i,700,900i&display=swap&subset=vietnamese” rel=“stylesheet”>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,500,500i,700,900i&display=swap&subset=vietnamese",
+        media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'blog', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
   </head>
 
   <body>
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
+    <%= render "shared/application_nav" %>
+    <% if blog_path? %>
+      <%= render 'shared/blog_masthead' %>
+    <% end %>
 
-          <%= video_tag(
-              'HardDrivePhotojpeg.mp4',
-              id: 'background',
-              autoplay: true,
-              loop: true,
-              muted: true,
-              poster: 'home_bg.png'
-            )
-            %>
-
-          <%= render "shared/application_nav" %>
-
-          <%= yield %>
-
-          <%= render "shared/application_footer" %>
-
-          <%= alerts %>
-
-        </div>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
       </div>
+
+      <%= alerts %>
     </div>
+    <%= render 'shared/blog_footer' %>
   </body>
 </html>

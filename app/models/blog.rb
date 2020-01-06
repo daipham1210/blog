@@ -6,7 +6,7 @@ class Blog < ApplicationRecord
   validates_presence_of :title, :body, :topic_id
 
   # Associations
-  belongs_to :topic
+  belongs_to :topic, optional: true
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :comments, as: :creator, class_name: 'Commontator::Comment'
