@@ -21,3 +21,7 @@ services:
       DATABASE_URL: postgres://postgres@db
 volumes:
   pgdata:
+networks:
+  default:
+    external:
+      name: daiphamblog

@@ -7,7 +7,6 @@ gitBranch="master"
 hostDockerRegistry="127.0.0.1"
 portDockerRegistry="5000"
 version="latest"
-network="daiphamblog"
 
 changeDir() {
 	cd $path_app/$gitProjectName
@@ -116,10 +115,6 @@ deleteOldImage() {
 	echo "FINISH"
 }
 
-dockerConnectNetwork() {
-  docker network connect $network $app
-}
-
 
 if [ ! -d "$path_app/$gitProjectName" ]; then
 	cloneProject
@@ -129,4 +124,3 @@ buildDockerImage
 pushImagesToLocalRegistry
 dockerDeploy
 deleteOldImage
-dockerConnectNetwork
