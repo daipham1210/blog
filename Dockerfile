@@ -5,7 +5,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install --deployment
+RUN bundle install
 COPY . /app
 
 COPY entrypoint.sh /usr/bin/
