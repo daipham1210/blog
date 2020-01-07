@@ -7,7 +7,7 @@ class Auth::CallbacksController < ApplicationController
       flash[:notice] = 'Sign in successfully.'
     else
       session['devise.facebook_data'] = omniauth_params
-      redirect_to new_user_registration_url
+      redirect_to new_user_session_path
     end
   end
 
