@@ -19,5 +19,13 @@ OmniAuth.config.full_host = Rails.env.production? ? 'http://daipham.xyz' : 'http
 # end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], { redirect_uri: 'http://daipham.xyz/auth/github/callback' }
+  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], { 
+    redirect_uri: 'http://daipham.xyz/auth/github/callback',
+    setup: (lambda do |env|
+      request = Rack::Request.new(env)
+      env['omniauth.strategy'].options['token_params'] = {
+        redirect_uri: 'http://daipham.xyz/auth/github/callback'
+      }
+    end) 
+  }
 end
