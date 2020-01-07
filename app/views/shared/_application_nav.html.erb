@@ -3,9 +3,12 @@
     <h3 class="masthead-brand">Dai Pham</h3>
   <% end %>
   <nav class="nav nav-masthead app-nav">
+    <% unless current_user %>
+      <span><%= link_to 'Login', new_user_session_path, class: 'nav-link login-link' %></span>
+    <% end %>
     <span><%= link_to 'Blog', blogs_path, class: 'nav-link' %></span>
     <span><%= link_to 'About Me', about_me_path, class: 'nav-link' %></span>
-    <% unless current_user.is_a?(GuestUser) %>
+    <% if current_user %>
       <span><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></span>
     <% end %>
   </nav>
