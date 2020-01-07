@@ -43,7 +43,7 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 
-gem 'omniauth-facebook', '~> 3.0'
+gem 'omniauth-github'
 
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
