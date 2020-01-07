@@ -57,7 +57,7 @@ buildDockerImage() {
 	echo "run Docker Build"
 	changeDir
 	pwd
-	docker build
+	docker-compose build
 	if [ ! $? -eq 0 ]; then
 		echo "docker build ERROR"
 		exit 1
