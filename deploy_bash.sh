@@ -56,7 +56,7 @@ pullProject() {
 buildDockerImage() {
 	echo "run Docker Build"
 	changeDir
-	pwd
+
 	docker-compose build
 	if [ ! $? -eq 0 ]; then
 		echo "docker build ERROR"
