@@ -43,13 +43,13 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 
-gem 'omniauth-github'
-
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
 gem 'redis', '~> 3.3', '>= 3.3.3'
 gem 'pry-rails', '~> 0.3.9'
+gem 'sprockets-rails', '2.3.3'
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
