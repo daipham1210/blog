@@ -41,18 +41,9 @@ pullProject() {
 		exit 1
 	fi
 
-	git checkout -b $gitBranch origin/$gitBranch
-	outputCode=$?
-	if [ ! $outputCode -eq 0 ]; then
-		if [ ! $outputCode -eq 128 ]; then
-			echo "git checkout -b $gitBranch ERROR"
-			exit 1
-		else
-			git checkout $gitBranch
-			if [ ! $? -eq 0 ]; then
-				echo "git checkout $gitBranch ERROR"
-			fi
-		fi
+	git checkout $gitBranch
+	if [ ! $? -eq 0 ]; then
+		echo "git checkout $gitBranch ERROR"
 	fi
 
 	git pull
@@ -65,8 +56,8 @@ pullProject() {
 buildDockerImage() {
 	echo "run Docker Build"
 	changeDir
-
-	docker build -t $app .
+	pwd
+	docker build
 	if [ ! $? -eq 0 ]; then
 		echo "docker build ERROR"
 		exit 1
