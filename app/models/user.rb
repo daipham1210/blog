@@ -18,14 +18,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   acts_as_commontator
 
-  def first_name
-    name.split.first
-  end
-
-  def last_name
-    name.split.last
-  end
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.info.nickname).first_or_create do |user|
       user.provider = auth.provider
