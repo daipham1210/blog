@@ -3,4 +3,7 @@
     <%= render @blogs %>
     <%= paginate @blogs %>
 </div>
-<%= render 'shared/blog_sidebar' %>
+<div class="col-sm-3">
+    <%= render 'blog_sidebar' %>
+    <%= render 'blog_tag' %>
+</div>

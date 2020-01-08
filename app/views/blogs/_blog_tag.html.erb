@@ -1,0 +1,9 @@
+<div class="blog-tag">
+  <p class="ui-h3 text-center">Tags</p>
+  <hr />
+  <ul class="cloud">
+    <% @tags.each do |tag_name| %>
+      <li><%= link_to tag_name, blog_tag_path(tag_name) %></li>
+    <% end %>
+  </ul>
+</div>

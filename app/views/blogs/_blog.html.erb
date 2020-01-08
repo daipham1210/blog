@@ -3,7 +3,7 @@
   <p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
   <div class="blog-post-tags">
     <% blog.tags.each do |tag| %>
-      <%= link_to "##{tag.name}", "/tags/#{tag.name}", class: 'tag', style: "color: #{tag.color}; background: #{tag.background}" %>
+      <%= link_to "##{tag.name}", blog_tag_path(tag.name), class: 'tag', style: "color: #{tag.color}; background: #{tag.background}" %>
     <% end%>
   </div>
   <%= render partial: 'blogs/admin_actions', locals: { blog: blog } %>

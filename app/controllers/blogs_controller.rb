@@ -78,9 +78,18 @@ class BlogsController < ApplicationController
 
   def tags
     @blogs = if logged_in?(:site_admin)
-               Blog.admin_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+               Blog.admin_list.find_tag(params[:tag], params[:page])
              else
-               Blog.public_list.find_tag(params[:tag]).page_kaminari(params[:page]).per(5)
+               Blog.public_list.find_tag(params[:tag], params[:page])
+             end
+    render 'index'
+  end
+
+  def topics
+    @blogs = if logged_in?(:site_admin)
+               Blog.admin_list.find_topic(params[:topic], params[:page])
+             else
+               Blog.public_list.find_topic(params[:topic], params[:page])
              end
     render 'index'
   end
@@ -100,6 +109,8 @@ class BlogsController < ApplicationController
   end
 
   def set_sidebar_topics
-    @topics = Topic.all
+    @topics        = Topic.all
+    @tags          = Tag.all.pluck(:name)
+    @popular_blogs = Blog.popular
   end
 end

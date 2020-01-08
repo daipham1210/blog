@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get 'tags/:tag', to: 'blogs#tags'
+  get 'topic/:topic', to: 'blogs#topics'
 
   mount ActionCable.server => '/cable'
   mount Commontator::Engine => '/commontator'

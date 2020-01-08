@@ -1,0 +1,22 @@
+<div class="blog-sidebar">
+  <p class="ui-h3 text-center">Popular posts</p>
+  <hr />
+  <div>
+    <ul class="popular-posts">
+      <% @popular_blogs.each_with_index do |blog, index| %>
+        <li>
+          <div class="number">0<%= index + 1 %></div>
+          <div class="content">
+            <div class="title"><%= link_to blog.title, blog %></div>
+            <div class="caption">
+              <span>
+                <span><%= blog.created_at_formated %></span>
+                <!-- <span>5 min read</span> -->
+              </span>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

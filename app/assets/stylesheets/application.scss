@@ -5,12 +5,104 @@
 @import "select2";
 @import "commontator/application";
 @import "commontator/comments";
+
 /*
  * Globals
  */
 
+/* open-sans-300 - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+       font-url('open-sans-v17-vietnamese_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-300italic - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'),
+       font-url('open-sans-v17-vietnamese_latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-regular - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       font-url('open-sans-v17-vietnamese_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-italic - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'),
+       font-url('open-sans-v17-vietnamese_latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-600 - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
+       font-url('open-sans-v17-vietnamese_latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-600italic - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'),
+       font-url('open-sans-v17-vietnamese_latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-700 - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+       font-url('open-sans-v17-vietnamese_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-700italic - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'),
+       font-url('open-sans-v17-vietnamese_latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-800 - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+       font-url('open-sans-v17-vietnamese_latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-800italic - vietnamese_latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'),
+       font-url('open-sans-v17-vietnamese_latin-800italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       font-url('open-sans-v17-vietnamese_latin-800italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #0A0A0A;
   line-height: 1.5;
   width: 100%;
@@ -25,7 +117,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   color: #333;
   margin-bottom: 20px;
@@ -136,7 +228,7 @@ h6, .h6 {
     list-style-type: none !important;
     display: flex;
     justify-content: space-between;
-    li {
+    li a {
       color: rgba(0,0,0,.54) !important;
       font-size: 15px;
     }
@@ -230,8 +322,10 @@ h6, .h6 {
  * Blog Side bar
  */
 .blog-sidebar {
+  margin-bottom: 30px;
   .ui-h3{
     font-size: 24px !important;
+    font-weight: 600;
   }
   .popular-posts {
     list-style-type: none;
@@ -247,8 +341,12 @@ h6, .h6 {
     }
     .number {
       margin-right: 20px;
+      font-variant-numeric: tabular-nums;
       font-size: 34px !important;
       color: rgba(0,0,0,.15);
+    }
+    .title a {
+      color: #0A0A0A;
     }
     .caption {
       span {
@@ -378,4 +476,36 @@ blockquote {
   color: hsla(0,0%,0%,0.59);
   font-style: italic;
   border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
+}
+
+.blog-tag {
+  a {
+    color: #0A0A0A;
+  }
+  .ui-h3 {
+    font-size: 24px !important;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+  hr {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+  }
+  .cloud {
+    display: inline;
+    list-style-type: none;
+  }
+  .cloud li {
+    list-style: none;
+    display: inline;
+  }
+  .cloud li:nth-of-type(3n + 1) {
+    font-size: 1.25em;
+  }
+  .cloud li:nth-of-type(4n+3) {
+      font-size: 1.5em;
+  }
+  .cloud li:nth-of-type(5n - 3) {
+      font-size: 1em;
+  }
 }

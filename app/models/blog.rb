@@ -15,7 +15,14 @@ class Blog < ApplicationRecord
 
   scope :public_list, -> { includes(:tags).order('blogs.created_at DESC') }
   scope :admin_list, -> { includes(:tags).published.order('blogs.created_at DESC') }
-  scope :find_tag, ->(tag_name) { joins(:tags).where("tags.name = '#{tag_name}'") }
+  scope :paging, ->(page) { page_kaminari(page).per(5) }
+  scope :find_tag, lambda { |tag_name, page = nil|
+    joins(:tags).where("tags.name = '#{tag_name}'").paging(page)
+  }
+  scope :find_topic, lambda { |topic_name = 'programming', page = nil|
+    where(topic_id: TOPIC[topic_name.to_sym]).paging(page)
+  }
+  scope :popular, ->(topic_name = 'programming') { where(topic_id: TOPIC[topic_name.to_sym]).recent.limit(3) }
 
   def self.special_blogs
     all
@@ -37,5 +44,9 @@ class Blog < ApplicationRecord
     return unless names
 
     self.tags = names.map { |n| Tag.find_by(name: n) }
+  end
+
+  def created_at_formated
+    created_at.strftime('%b %d, %Y')
   end
 end
