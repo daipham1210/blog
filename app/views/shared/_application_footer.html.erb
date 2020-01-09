@@ -1,8 +1,21 @@
 <footer class="blog-footer">
-  <p>
-    <%= copyright_generator %>
-  </p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
+  <div class="social-network">
+    <a href="#" class="social-link">
+      <%= image_tag 'icons/github-icon.svg', class: "social-icon", alt: "github" %>
+    </a>
+    <a href="#" class="social-link">
+      <%= image_tag 'icons/fb-icon.svg', class: "social-icon", alt: "facebook" %>
+    </a>
+    <a href="#" class="social-link">
+      <%= image_tag 'icons/twitter-icon.svg', class: "social-icon", alt: "twitter" %>
+    </a>
+     <a href="#" class="social-link">
+      <%= image_tag 'icons/insta-icon.svg', class: "social-icon", alt: "instagram" %>
+    </a>
+  </div>
+  <div class="email-contact">
+    <%= image_tag 'icons/gmail-icon.svg', class: "social-icon", alt: "gmail" %>
+    daipham1210@gmail.com
+  </div>
+  <span class="copyright">© 2020 | By <strong>Dai Pham</strong></span>
 </footer>

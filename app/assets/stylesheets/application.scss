@@ -313,6 +313,20 @@ h6, .h6 {
   text-align: center;
   background-color: #f9f9f9;
   border-top: .05rem solid #e5e5e5;
+  .social-network {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .email-contact {
+    margin-bottom: 10px;
+  }
+  .copyright {
+    color: #0A0A0A;
+  }
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
@@ -508,4 +522,32 @@ blockquote {
   .cloud li:nth-of-type(5n - 3) {
       font-size: 1em;
   }
+}
+.cd-top {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s, visibility .3s, background-color .3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: inline-block;
+  height: 50px; //var(--cd-back-to-top-size);
+  width: 50px; // var(--cd-back-to-top-size);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background: image-url('icons/cd-top-arrow.svg') no-repeat center 50%;
+  background-color: #0A0A0A;
+}
+
+.cd-top--is-visible { // back-to-top button visible
+  visibility: visible;
+  opacity: 1;
+}
+
+.cd-top--fade-out { // reduce button opacity if user keeps scrolling
+  opacity: .5;
+}
+
+.cd-top:hover {
+  background-color: red;
+  opacity: 1;
 }
