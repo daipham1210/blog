@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def copyright_generator
-    # DevcampViewTool::Renderer.copyright 'Dai Pham', 'All rights reserved'
-  end
-
   def nav_items
     [
       {

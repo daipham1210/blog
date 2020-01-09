@@ -100,15 +100,23 @@
        font-url('open-sans-v17-vietnamese_latin-800italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        font-url('open-sans-v17-vietnamese_latin-800italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
+html {
+  height: 100%;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   color: #0A0A0A;
+  height: 100%;
   line-height: 1.5;
   width: 100%;
   p {
     margin-bottom: 20px;
   }
+}
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
 h1, .h1,
@@ -130,11 +138,8 @@ h6, .h6 {
 
 .container {
   max-width: 60rem;
+  margin-bottom: 40px;
 }
-.wrapper {
-  padding-bottom: 150px;
-}
-
 /*
  * Header
  */
@@ -202,6 +207,8 @@ h6, .h6 {
   margin-left: 15%;
   margin-right: 15%;
   width: 70%;
+  // height: auto;
+  // min-height: 500px;
   padding-left: 15px;
   padding-right: 15px;
   form {
@@ -307,7 +314,8 @@ h6, .h6 {
  */
 
 .blog-footer {
-  margin-top: 20px;
+  width: 100%;
+  margin-top: auto;
   padding: 2.5rem 0;
   color: #999;
   text-align: center;
@@ -548,6 +556,6 @@ blockquote {
 }
 
 .cd-top:hover {
-  background-color: red;
+  background-color: #6c757d;
   opacity: 1;
 }

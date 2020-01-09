@@ -18,19 +18,21 @@
   </head>
 
   <body>
-    <%= render "shared/application_nav" %>
-    <% if blog_path? %>
-      <%= render 'shared/blog_masthead' %>
-    <% end %>
+    <div class="wrapper">
+      <%= render "shared/application_nav" %>
+      <% if blog_path? %>
+        <%= render 'shared/blog_masthead' %>
+      <% end %>
 
-    <div class="container">
-      <div class="row">
-        <%= yield %>
+      <div class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+
+        <%= alerts %>
       </div>
-
-      <%= alerts %>
+      <%= render 'shared/application_footer' %>
+      <%= link_to '', '#', class: "cd-top text-replace js-cd-top" %>
     </div>
-    <%= render 'shared/application_footer' %>
-    <a href="#" class="cd-top text-replace js-cd-top"></a>
   </body>
 </html>
