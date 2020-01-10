@@ -87,7 +87,7 @@ Rails.application.configure do
 
   # config.action_controller.default_url_options = { host: 'daipham.xyz' }
   config.action_cable.mount_path = '/cable'
-  config.action_cable.url = [/ws://*/, /wss://*/]
-  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
+  config.action_cable.url = "wss://daipham.xyz/cable"
+  config.action_cable.allowed_request_origins = ['https://daipham.xyz', 'http://daipham.xyz']
   config.action_cable.allow_same_origin_as_host = true
 end
