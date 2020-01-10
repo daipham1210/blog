@@ -86,6 +86,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config.action_controller.default_url_options = { host: 'daipham.xyz' }
-  # config.action_cable.allowed_request_origins = []
-  # config.action_cable.url = ""
+  config.action_cable.allowed_request_origins = ['https://daipham.xyz', 'http://daipham.xyz']
+  config.action_cable.url = "wss://daipham.xyz/cable"
 end
