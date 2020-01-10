@@ -26,6 +26,7 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://postgres@db
+      REDIS_URL: redis://redis:6379/0
 volumes:
   pgdata:
   redis:
