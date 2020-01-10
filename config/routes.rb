@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   get 'topic/:topic', to: 'blogs#topics'
 
   mount ActionCable.server => '/cable'
-  # mount Commontator::Engine => '/commontator'
 end
