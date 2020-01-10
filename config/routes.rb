@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :topics, only: [:index, :show]
 
   devise_for :users, skip: [:registrations], path: '', 
@@ -19,5 +20,5 @@ Rails.application.routes.draw do
   get 'topic/:topic', to: 'blogs#topics'
 
   mount ActionCable.server => '/cable'
-  mount Commontator::Engine => '/commontator'
+  # mount Commontator::Engine => '/commontator'
 end

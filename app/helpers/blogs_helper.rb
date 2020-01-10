@@ -1,6 +1,10 @@
 module BlogsHelper
-  def gravatar_helper(user)
-    image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}", width: 60
+  def github_avatar(user)
+    image_tag "https://avatars.githubusercontent.com/#{user.uid}", width: 60
+  end
+
+  def github_link(user)
+    "https://github.com/#{user.uid}"
   end
 
   class HTMLwithPygments < Redcarpet::Render::HTML

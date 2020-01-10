@@ -20,5 +20,11 @@
     <%= markdown @blog.body %>
   </div>
 
-  <%= commontator_thread(@commontable) %>
+  <div class="comment-title">Comments</div>
+
+  <div id="comments" data-blog-id="<%= @blog.id %>">
+    <%= render @blog.comments %>
+  </div>
+
+  <%= render 'comments/comment_form' %>
 </div>

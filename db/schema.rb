@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_032940) do
+ActiveRecord::Schema.define(version: 2020_01_10_051758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,47 +28,14 @@ ActiveRecord::Schema.define(version: 2020_01_08_032940) do
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
   end
 
-  create_table "commontator_comments", force: :cascade do |t|
-    t.bigint "thread_id", null: false
-    t.string "creator_type", null: false
-    t.bigint "creator_id", null: false
-    t.string "editor_type"
-    t.bigint "editor_id"
-    t.text "body", null: false
-    t.datetime "deleted_at"
-    t.integer "cached_votes_up", default: 0
-    t.integer "cached_votes_down", default: 0
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
-    t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down"
-    t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up"
-    t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id"
-    t.index ["editor_type", "editor_id"], name: "index_commontator_comments_on_editor_type_and_editor_id"
-    t.index ["parent_id"], name: "index_commontator_comments_on_parent_id"
-    t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at"
-  end
-
-  create_table "commontator_subscriptions", force: :cascade do |t|
-    t.bigint "thread_id", null: false
-    t.string "subscriber_type", null: false
-    t.bigint "subscriber_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true
-    t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id"
-  end
-
-  create_table "commontator_threads", force: :cascade do |t|
-    t.string "commontable_type"
-    t.bigint "commontable_id"
-    t.string "closer_type"
-    t.bigint "closer_id"
-    t.datetime "closed_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["closer_type", "closer_id"], name: "index_commontator_threads_on_closer_type_and_closer_id"
-    t.index ["commontable_type", "commontable_id"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+    t.index ["blog_id"], name: "index_comments_on_blog_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
@@ -81,25 +48,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_032940) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-  end
-
-  create_table "portfolios", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.string "subtitle"
-    t.text "body"
-    t.text "main_image"
-    t.text "thumb_image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "position"
-  end
-
-  create_table "skills", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.integer "percent_utilized"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "badge"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -118,14 +66,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_032940) do
     t.string "color"
     t.string "background"
     t.index ["name"], name: "index_tags_on_name"
-  end
-
-  create_table "technologies", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.integer "portfolio_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["portfolio_id"], name: "index_technologies_on_portfolio_id"
   end
 
   create_table "topics", id: :serial, force: :cascade do |t|
@@ -155,25 +95,9 @@ ActiveRecord::Schema.define(version: 2020_01_08_032940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
-
   add_foreign_key "blogs", "topics"
-  add_foreign_key "commontator_comments", "commontator_comments", column: "parent_id", on_update: :restrict, on_delete: :cascade
-  add_foreign_key "commontator_comments", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "commontator_subscriptions", "commontator_threads", column: "thread_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "users"
   add_foreign_key "taggings", "blogs"
   add_foreign_key "taggings", "tags"
-  add_foreign_key "technologies", "portfolios"
 end

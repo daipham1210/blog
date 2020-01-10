@@ -21,3 +21,4 @@
 //= require select2-init
 //= require commontator/application
 //= require back-to-top
+//= require cable

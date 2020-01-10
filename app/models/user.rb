@@ -16,7 +16,6 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   has_many :comments, dependent: :destroy
-  acts_as_commontator
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.info.nickname).first_or_create do |user|
@@ -26,5 +25,13 @@ class User < ApplicationRecord
       user.name     = auth.info.name
       user.password = Devise.friendly_token[0, 20]
     end
+  end
+
+  def first_name
+    name.split.first
+  end
+
+  def last_name
+    name.split.last
   end
 end

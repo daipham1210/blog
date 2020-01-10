@@ -559,3 +559,32 @@ blockquote {
   background-color: #6c757d;
   opacity: 1;
 }
+.comment-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card-block {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  .author-avatar {
+    margin-right: 15px;
+  }
+  .content {
+    padding: 15px;
+    background: #F0F0F0;
+    width: calc(100% - 75px);
+    border-left: solid 1.5px #0A0A0A;
+    .author {
+      a { color: #0A0A0A; }
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .body {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="card-block">
+  <div class="author-avatar">
+    <a href=<%= github_link(comment.user)%>><%= github_avatar(comment.user) %></a>
+  </div>
+
+  <div class="content">
+    <div class="author">
+      <%= link_to comment.user.first_name, github_link(comment.user) %>
+    </div>
+
+    <div class="body">
+      <%= comment.content %>
+    </div>
+
+    <div class="comment-attribution">
+      <%= comment.created_at.strftime(" %b %d, %Y %H:%M") %>
+    </div>
+  </div>
+</div>
