@@ -588,3 +588,9 @@ blockquote {
     }
   }
 }
+.btn-login-github {
+  border: 1px solid #0A0A0A;
+  span { display: flex; }
+  img { margin-left: 5px;
+        margin-right: 5px; }
+}
