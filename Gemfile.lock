@@ -299,7 +299,7 @@ DEPENDENCIES
   pygments.rb (~> 1.2, >= 1.2.1)
   rails (~> 5.2.2)
   redcarpet (~> 3.4)
-  redis (~> 3.3, >= 3.3.3)
+  redis (~> 3.3, >= 3.3.1)
   rubocop (~> 0.77.0)
   sass-rails (~> 5.0)
   sassc-rails (~> 2.1, >= 2.1.2)
