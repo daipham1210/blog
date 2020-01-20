@@ -47,7 +47,7 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
-gem 'redis', '~> 3.3', '>= 3.3.3'
+gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'pry-rails', '~> 0.3.9'
 gem 'sprockets-rails', '2.3.3'
 
