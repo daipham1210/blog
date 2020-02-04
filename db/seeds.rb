@@ -1,3 +1,4 @@
+# Tags
 [
   { name: 'docker', color: '#ffffff', background: 'orange' },
   { name: 'css', color: '#000000', background: '#FFF1E2' },
@@ -24,3 +25,8 @@
   { name: 'productivity', color: '#ffffff', background: 'brown' },
   { name: 'testing', color: '#ffffff', background: 'black' }
 ].each { |tag| Tag.find_or_create_by(name: tag[:name]).update(tag) }
+
+# Topic
+[ 
+  "Programming", "Technology", "Health", "Work", "Business", "Language", "Food"
+].each { |title| Topic.find_or_create_by(title: title) }
