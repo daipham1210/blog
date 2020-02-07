@@ -13,13 +13,11 @@ services:
       - 'redis:/data'
     # ports:
     #   - '6379:6379'
-  web:
+  app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/app/DockerFile
     container_name: daiphamblog
-    volumes:
-      - .:/app
     ports:
       - "3000:3000"
     depends_on:
@@ -27,10 +25,14 @@ services:
     environment:
       DATABASE_URL: postgres://postgres@db
       REDIS_URL: redis://redis:6379
+  web:    
+    build:      
+      context: .      
+      dockerfile: ./docker/web/DockerFile    
+    depends_on:      
+      - app    
+    ports:      
+      - 80:80
 volumes:
   pgdata:
   redis:
-networks:
-  default:
-    external:
-      name: daiphamblog
