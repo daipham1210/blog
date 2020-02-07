@@ -13,13 +13,11 @@ services:
       - 'redis:/data'
     # ports:
     #   - '6379:6379'
-  web:
+  app:
     build:
       context: .
       dockerfile: docker/app/DockerFile
     container_name: daiphamblog
-    volumes:
-      - .:/app
     ports:
       - "3000:3000"
     depends_on:
@@ -38,7 +36,3 @@ services:
 volumes:
   pgdata:
   redis:
-networks:
-  default:
-    external:
-      name: daiphamblog
