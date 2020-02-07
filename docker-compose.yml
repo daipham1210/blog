@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: ./docker/web/Dockerfile
     ports:
-      - 81:80
+      - 80:81
     depends_on:      
       - app
 volumes:
