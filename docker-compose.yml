@@ -30,9 +30,7 @@ services:
     ports:
       - 81:80
     depends_on:      
-      - app    
-    ports:      
-      - 80:80
+      - app
 volumes:
   pgdata:
   redis:
