@@ -31,12 +31,11 @@ services:
       - app
     networks:
       default:
-        aliases:
-          - daiphamblog_web
+        - daiphamblog_web
 volumes:
   pgdata:
   redis:
+
 networks:
   default:
-    aliases:
-      - web_proxy
+    - web_proxy
