@@ -17,7 +17,6 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    # container_name: daiphamblog
     depends_on:
       - db
     environment:
@@ -27,13 +26,9 @@ services:
     build:      
       context: .
       dockerfile: ./docker/web/Dockerfile
+      container_name: daipham_blog
     depends_on:      
       - app
 volumes:
   pgdata:
   redis:
-
-networks:
-  default:
-    external:
-      name: web_proxy
