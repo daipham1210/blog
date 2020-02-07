@@ -29,8 +29,9 @@ services:
       dockerfile: ./docker/web/Dockerfile
     depends_on:      
       - app
-    networks:
-      default:
+  networks:
+    default:
+      aliases:
         - daiphamblog_web
 volumes:
   pgdata:
@@ -38,4 +39,5 @@ volumes:
 
 networks:
   default:
-    - web_proxy
+    external:
+      name: web_proxy
