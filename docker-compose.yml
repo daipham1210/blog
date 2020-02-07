@@ -16,7 +16,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./docker/app/DockerFile
+      dockerfile: docker/app/DockerFile
     container_name: daiphamblog
     ports:
       - "3000:3000"
@@ -27,8 +27,8 @@ services:
       REDIS_URL: redis://redis:6379
   web:    
     build:      
-      context: .      
-      dockerfile: ./docker/web/DockerFile    
+      context: .
+      dockerfile: docker/web/DockerFile
     depends_on:      
       - app    
     ports:      
