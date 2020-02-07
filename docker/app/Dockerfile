@@ -20,6 +20,8 @@ COPY Gemfile.lock Gemfile.lock
 RUN bundle install --jobs 20 --retry 5 --without development test 
 COPY . .
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN rails assets:precompile
+RUN rails db:migrate
+
+EXPOSE 3000
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
