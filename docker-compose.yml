@@ -27,10 +27,16 @@ services:
     build:      
       context: .
       dockerfile: ./docker/web/Dockerfile
-    ports:
-      - 80:81
     depends_on:      
       - app
+    networks:
+      default:
+        aliases:
+          - daiphamblog_web
 volumes:
   pgdata:
   redis:
+networks:
+  default:
+    aliases:
+      - web_proxy
