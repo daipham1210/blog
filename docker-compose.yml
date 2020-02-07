@@ -29,10 +29,6 @@ services:
       dockerfile: ./docker/web/Dockerfile
     depends_on:      
       - app
-  networks:
-    default:
-      aliases:
-        - daiphamblog_web
 volumes:
   pgdata:
   redis:
