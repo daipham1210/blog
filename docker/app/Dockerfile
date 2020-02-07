@@ -21,7 +21,6 @@ RUN bundle install --jobs 20 --retry 5 --without development test
 COPY . .
 
 RUN rails assets:precompile
-RUN rails db:migrate
 
 EXPOSE 3000
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
