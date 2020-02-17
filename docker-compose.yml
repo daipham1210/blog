@@ -27,6 +27,9 @@ services:
       context: .
       dockerfile: ./docker/web/Dockerfile
     container_name: daipham_blog
+    ports:
+      - '80:80'
+      - '443:443'
     depends_on:      
       - app
 volumes:
