@@ -26,3 +26,4 @@
 .rakeTasks
 .DS_Store
 .generators
+/ssl/*
