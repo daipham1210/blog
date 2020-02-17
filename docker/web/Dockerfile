@@ -22,8 +22,8 @@ COPY public public/
 # Copy Nginx config template
 COPY docker/web/nginx.conf /tmp/docker.nginx
 
-COPY ssl/nginx.crt /etc/ssl/
-COPY ssl/nginx.key /etc/ssl/
+COPY ssl/nginx.crt /etc/ssl/nginx.crt
+COPY ssl/nginx.key /etc/ssl/nginx.key
 # substitute variable references in the Nginx config template for real values from the environment 
 # put the final config in its place
 RUN envsubst '$RAILS_ROOT' < /tmp/docker.nginx > /etc/nginx/conf.d/default.conf
