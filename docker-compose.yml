@@ -22,7 +22,7 @@ services:
     environment:
       DATABASE_URL: postgres://postgres@db
       REDIS_URL: redis://redis:6379
-  web:    
+  nginx:    
     build:      
       context: .
       dockerfile: ./docker/web/Dockerfile
