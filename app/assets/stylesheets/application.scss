@@ -171,7 +171,6 @@ h6, .h6 {
   float: right;
 }
 .masthead {
-  width: 960px;
   margin: 0 auto;
   margin-bottom: 24px;
   padding-top: 32px;
@@ -188,7 +187,29 @@ h6, .h6 {
   border-bottom-color: black;
 }
 
+@media (min-width: 960px) {
+  .masthead {
+    width: 960px;
+  }
+}
 
+@media (max-width: 960px) {
+  .blog-header {
+    .container {
+      display: none;
+    }
+  }
+  .masthead {
+    width: 100%;
+  }
+  .blog-sidebar, .blog-tag, .span-login {
+    display: none;
+  }
+  .blog-main {
+    max-width: 100% !important;
+    flex: none;
+  }
+}
 /*
  * Masthead for nav
  */

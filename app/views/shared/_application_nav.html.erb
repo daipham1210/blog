@@ -4,7 +4,7 @@
   <% end %>
   <nav class="nav nav-masthead app-nav">
     <% unless current_user %>
-      <span><%= link_to 'Login', new_user_session_path, class: 'nav-link login-link' %></span>
+      <span class='span-login'><%= link_to 'Login', new_user_session_path, class: 'nav-link login-link' %></span>
     <% end %>
     <span><%= link_to 'Blog', blogs_path, class: 'nav-link' %></span>
     <span><%= link_to 'About Me', about_me_path, class: 'nav-link' %></span>
