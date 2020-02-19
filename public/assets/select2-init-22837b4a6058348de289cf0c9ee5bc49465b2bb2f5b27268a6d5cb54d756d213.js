@@ -1,1 +1,0 @@
-window.Select2={initialize:function(){var e=$(".select2").attr("selected_value");e&&""!=e&&(e=e.split(",")).forEach(e=>{var t=$("<option selected='selected'></option>").val(e).text(e);$(".select2").append(t).trigger("change")}),$(".select2").select2()}};
