@@ -1,8 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: postgres
+  password: <%= Rails.application.credentials.db_pass %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'] %>
 
 development:
   <<: *default

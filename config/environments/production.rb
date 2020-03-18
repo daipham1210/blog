@@ -90,4 +90,5 @@ Rails.application.configure do
   config.action_cable.url = "wss://daipham.xyz/cable"
   config.action_cable.allowed_request_origins = ['https://daipham.xyz', 'http://daipham.xyz']
   config.action_cable.allow_same_origin_as_host = true
+  config.require_master_key = true
 end
