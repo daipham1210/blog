@@ -1,0 +1,71 @@
+---
+# - name: install dependencies
+#   package:
+#     name: "{{ item }}"
+#     state: present
+#   with_items: "{{ rbenv_packages | default(rbenv_packages_default) }}"
+
+- name: install sources
+  git:
+    repo: "{{ rbenv_repo }}"
+    dest: "{{ rbenv_path }}"
+    version: "{{ rbenv_version }}"
+
+- name: configure bash profile
+  template:
+    dest: "{{ rbenv_bash_conf_path }}"
+    src: bash_profile.j2
+    force: 'no'
+  vars:
+    bin: "{{ rbenv_path_bin }}"
+  when: rbenv_bash_conf
+
+- name: configure bash path
+  lineinfile:
+    dest: "{{ rbenv_bash_conf_path }}"
+    line: '[[ -d {{ rbenv_path_bin }} ]] && export PATH="{{ rbenv_path_bin }}:$PATH"'
+  when: rbenv_bash_conf
+
+- name: configure shims
+  lineinfile:
+    dest: "{{ rbenv_bash_conf_path }}"
+    line: "[[ -f {{ rbenv_path_bin }}/rbenv ]] && eval \"$({{ rbenv_path_bin }}/rbenv init -)\""
+  when: rbenv_bash_conf
+
+- name: create plugin dir
+  file:
+    dest: "{{ rbenv_path_plugins }}"
+    state: directory
+
+- name: install plugins
+  git:
+    repo: "{{ item['repo'] }}"
+    dest: "{{ rbenv_path_plugins }}/{{ item['name'] }}"
+    version: "{{ item['version'] | default('master') }}"
+  with_items:
+    - "{{ rbenv_plugins }}"
+
+- name: set up default gems
+  template:
+    dest: "{{ rbenv_path }}/default-gems"
+    src: list.j2
+  vars:
+    items: "{{ rbenv_gems }}"
+
+- name: install ruby version
+  shell: "{{ rbenv_path_bin }}/rbenv install {{ rbenv_ruby }}"
+  when:
+    rbenv_ruby is defined
+  args:
+    creates: "{{ rbenv_path }}/versions/{{ rbenv_ruby }}"
+  tags:
+    - skip_ansible_lint
+
+- name: link ruby home
+  file:
+    src: "{{ rbenv_path }}/versions/{{ rbenv_ruby }}"
+    dest: "{{ rbenv_ruby_path }}"
+    state: link
+  when:
+    - rbenv_ruby is defined
+    - rbenv_ruby_path is defined

@@ -1,0 +1,29 @@
+---
+# rbenv_packages:
+rbenv_repo: https://github.com/rbenv/rbenv.git
+rbenv_version: master
+rbenv_path: "~/.rbenv"
+rbenv_gems: []
+rbenv_plugins:
+    - name: "rbenv-vars"
+      repo: "https://github.com/rbenv/rbenv-vars.git"
+    - name: "ruby-build"
+      repo: "https://github.com/rbenv/ruby-build.git"
+    - name: "rbenv-default-gems"
+      repo: "https://github.com/rbenv/rbenv-default-gems.git"
+    - name: "rbenv-installer"
+      repo: "https://github.com/rbenv/rbenv-installer.git"
+    - name: "rbenv-update"
+      repo: "https://github.com/rkh/rbenv-update.git"
+    - name: "rbenv-whatis"
+      repo: "https://github.com/rkh/rbenv-whatis.git"
+    - name: "rbenv-use"
+      repo: "https://github.com/rkh/rbenv-use.git"
+    - name: "rbenv-gemset"
+      repo: "https://github.com/jf/rbenv-gemset.git"
+# rbenv_ruby: ''
+# rbenv_ruby_path: ''
+rbenv_bash_conf: no
+rbenv_bash_conf_path: "~/.bash_profile"
+rbenv_path_bin: "{{ rbenv_path }}/bin"
+rbenv_path_plugins: "{{ rbenv_path }}/plugins"

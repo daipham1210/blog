@@ -1,0 +1,31 @@
+---
+# Server Timzone + Locale
+timezone: Asia/Ho_Chi_Minh
+locale: en_US.UTF-8
+
+# General settings
+deploy_server_hostname: myVPS
+deploy_user: deploy
+deploy_password: deploy
+deploy_dir: /Users/dai.pham/Working Projects/blog
+shared_dirs:
+  - releases
+  - repo
+  - shared
+  - shared/config
+  - shared/log
+  - shared/public
+  - shared/tmp
+
+# Authorized Hosts
+# This copies your local public key to the remote machine
+# for passwordless login. Modify this!
+ssh_public_key_files:
+  - /Users/dai.pham/.ssh/digital.pub
+
+rbenv:
+  env: user
+  version: 1.1.2
+  default_ruby: 2.6.3
+  rubies:
+  - version: 2.6.3

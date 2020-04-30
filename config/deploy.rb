@@ -1,6 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
+require 'mina/puma'
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
 # Basic settings:
@@ -10,7 +11,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'myblog'
-set :user, 'daipham'
+set :user, 'deploy'
 set :forward_agent, true     # SSH forward_agent.
 set :repository, 'git@github.com:daipham1210/blog.git'
 set :branch, 'master'
@@ -38,8 +39,8 @@ task :remote_environment do
 end
 
 task :production do
-  set :domain, '134.209.106.197'
-  set :port, '2424'
+  set :domain, '139.59.223.94'
+  set :port, '22'
   set :deploy_to, '/var/www/myblog'
 end
 
@@ -47,7 +48,13 @@ end
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   run(:remote) do
+    command "mkdir -p /var/www/"
+    command "sudo chown #{fetch(:user)}:#{fetch(:user)} /var/www/"
     command "chmod +w #{fetch(:shared_path)}"
+    command "mkdir -p #{fetch(:shared_path)}/tmp/sockets"
+    command "chmod g+rx,u+rwx #{fetch(:shared_path)}/tmp/sockets"
+    command "mkdir -p #{fetch(:shared_path)}/tmp/pids"
+    command "chmod g+rx,u+rwx #{fetch(:shared_path)}/tmp/pids"
   end
 
   run(:local) do
@@ -72,10 +79,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke :'puma:phased_restart'
     end
   end
 
