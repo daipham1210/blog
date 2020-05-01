@@ -29,7 +29,7 @@ end
 
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
-gem 'commontator', '~> 6.1', '>= 6.1.1'
+# gem 'commontator', '~> 6.1', '>= 6.1.1'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'devise', '~> 4.7', '>= 4.7.1'

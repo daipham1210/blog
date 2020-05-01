@@ -63,9 +63,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    commontator (6.1.1)
-      rails (>= 5.0)
-      will_paginate
     concurrent-ruby (1.1.5)
     crass (1.0.6)
     devise (4.7.1)
@@ -270,7 +267,6 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    will_paginate (3.2.1)
 
 PLATFORMS
   ruby
@@ -281,7 +277,6 @@ DEPENDENCIES
   cocoon (~> 1.2, >= 1.2.9)
   coderay (~> 1.1, >= 1.1.1)
   coffee-rails (~> 4.2)
-  commontator (~> 6.1, >= 6.1.1)
   devise (~> 4.7, >= 4.7.1)
   font-awesome-rails (~> 4.7, >= 4.7.0.1)
   friendly_id (~> 5.1.0)
