@@ -45,19 +45,21 @@
 
 # Allow puma to be restarted by `rails restart` command.
 # plugin :tmp_restart
-environment "production"
+port        ENV["PORT"]     || 3000
+environment ENV["RACK_ENV"] || "production"
 
-bind  "unix:///var/www/myblog/shared/tmp/sockets/puma.sock"
-pidfile "/var/www/myblog/shared/tmp/pids/puma.pid"
-state_path "/var/www/myblog/shared/tmp/sockets/puma.state"
-directory "/var/www/myblog/current"
-
-workers Integer(ENV['WEB_CONCURRENCY'] || 2)
 threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
-daemonize true
+if ENV["RACK_ENV"] == "production"
+  workers Integer(ENV['WEB_CONCURRENCY'] || 2)
 
-activate_control_app 'unix:///var/www/myblog/shared/tmp/sockets/pumactl.sock'
+  bind  "unix:///var/www/myblog/shared/tmp/sockets/puma.sock"
+  pidfile "/var/www/myblog/shared/tmp/pids/puma.pid"
+  state_path "/var/www/myblog/shared/tmp/sockets/puma.state"
+  directory "/var/www/myblog/current"
 
-prune_bundler
+  daemonize true
+  activate_control_app 'unix:///var/www/myblog/shared/tmp/sockets/pumactl.sock'
+  prune_bundler
+end
