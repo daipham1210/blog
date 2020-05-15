@@ -1,9 +1,10 @@
-<div class="col-sm-9 blog-main">
-    <%= paginate @blogs %>
-    <%= render @blogs %>
-    <%= paginate @blogs %>
+<div class="col-sm-8">
+  <% @blogs.each do |year, blogs_each_year| %>
+    <div class="publish-year"><%= year %></div>
+    <%= render blogs_each_year %>
+  <% end %>
 </div>
-<div class="col-sm-3">
-    <%= render 'blog_sidebar' %>
-    <%= render 'blog_tag' %>
+<div class="col-sm-4">
+  <%= render 'blog_sidebar' %>
+  <%= render 'blog_tag' %>
 </div>

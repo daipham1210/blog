@@ -38,7 +38,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'gritter', '~> 1.2'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 

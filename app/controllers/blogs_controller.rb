@@ -7,9 +7,9 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = if logged_in?(:site_admin)
-               Blog.admin_list.paging(params[:page])
+               Blog.admin_list.three_year_recent.group_by { |blog| blog.created_at.year }
              else
-               Blog.public_list.paging(params[:page])
+               Blog.public_list.three_year_recent.group_by { |blog| blog.created_at.year }
              end
     @page_title = 'My Portfolio Blog'
   end
@@ -84,14 +84,14 @@ class BlogsController < ApplicationController
     render 'index'
   end
 
-  def topics
-    @blogs = if logged_in?(:site_admin)
-               Blog.admin_list.find_topic(params[:topic], params[:page])
-             else
-               Blog.public_list.find_topic(params[:topic], params[:page])
-             end
-    render 'index'
-  end
+  # def topics
+  #   @blogs = if logged_in?(:site_admin)
+  #              Blog.admin_list.find_topic(params[:topic], params[:page])
+  #            else
+  #              Blog.public_list.find_topic(params[:topic], params[:page])
+  #            end
+  #   render 'index'
+  # end
 
   private
 
@@ -104,12 +104,12 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :description, :body, :topic_id, :status, tag_list: [])
+    params.require(:blog).permit(:title, :body, :topic_id, :status, tag_list: [])
   end
 
   def set_sidebar_topics
     @topics        = Topic.all
     @tags          = Tag.all.pluck(:name)
-    @popular_blogs = Blog.popular
+    @popular_blogs = Blog.limit(3).order('id desc')
   end
 end

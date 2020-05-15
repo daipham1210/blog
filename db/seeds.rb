@@ -1,5 +1,7 @@
 # Tags
 [
+  { name: 'ruby', color: '#ffffff', background: 'orange' },
+  { name: 'rails', color: '#ffffff', background: 'orange' },
   { name: 'docker', color: '#ffffff', background: 'orange' },
   { name: 'css', color: '#000000', background: '#FFF1E2' },
   { name: 'javascript', color: '#000000', background: 'silver' },
@@ -27,6 +29,15 @@
 ].each { |tag| Tag.find_or_create_by(name: tag[:name]).update(tag) }
 
 # Topic
-[ 
-  "Programming", "Technology", "Health", "Work", "Business", "Language", "Food"
-].each { |title| Topic.find_or_create_by(title: title) }
+%w[Programming Technology Health Work Business Language Food].each do |title|
+  Topic.find_or_create_by(title: title)
+end
+
+# User
+User.find_or_initialize_by(email: 'daipham1210@gmail.com') do |user|
+  user.name                  = 'Dai Pham'
+  user.password              = '123123'
+  user.password_confirmation = '123123'
+  user.roles                 = [:site_admin]
+  user.save!
+end

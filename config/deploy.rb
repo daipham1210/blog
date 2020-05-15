@@ -38,7 +38,7 @@ task :remote_environment do
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 end
 
-task :production do
+task :remote_environment do
   set :domain, '139.59.223.94'
   set :port, '22'
   set :deploy_to, '/var/www/myblog'

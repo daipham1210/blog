@@ -1,8 +1,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: deploy
-  password: <%= Rails.application.credentials.db_pass %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -15,4 +13,6 @@ test:
 
 production:
   <<: *default
+  username: deploy
+  password: <%= Rails.application.credentials.db_pass %>
   database: daiphamblog_production
