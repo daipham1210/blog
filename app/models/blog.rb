@@ -3,10 +3,9 @@ class Blog < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates_presence_of :title, :body, :topic_id
+  validates_presence_of :title, :body
 
   # Associations
-  belongs_to :topic, optional: true
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :comments, dependent: :destroy
@@ -16,18 +15,6 @@ class Blog < ApplicationRecord
   scope :public_list, -> { includes(:tags).published.order('blogs.created_at DESC') }
   scope :admin_list, -> { includes(:tags).order('blogs.created_at DESC') }
   scope :find_tag, ->(tag_name) { joins(:tags).where("tags.name = '#{tag_name}'") }
-  # scope :find_topic, lambda { |topic_name = 'programming', page = nil|
-  #   where(topic_id: TOPIC[topic_name.to_sym])
-  # }
-  scope :popular, ->(topic_name = 'programming') { where(topic_id: TOPIC[topic_name.to_sym]).recent.limit(3) }
-
-  def self.special_blogs
-    all
-  end
-
-  def self.featured_blogs
-    limit(2)
-  end
 
   def self.recent
     order('created_at DESC')
