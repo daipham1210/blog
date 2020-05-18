@@ -28,11 +28,6 @@
   { name: 'testing', color: '#ffffff', background: 'black' }
 ].each { |tag| Tag.find_or_create_by(name: tag[:name]).update(tag) }
 
-# Topic
-%w[Programming Technology Health Work Business Language Food].each do |title|
-  Topic.find_or_create_by(title: title)
-end
-
 # User
 User.find_or_initialize_by(email: 'daipham1210@gmail.com') do |user|
   user.name                  = 'Dai Pham'
