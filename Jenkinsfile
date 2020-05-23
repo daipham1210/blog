@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'bundle install'
+        sh 'gem install bundler  --no-ri --no-rdoc'
+        sh 'bundle install --jobs=4'
         sh 'bundle exec rake assets:precompile'
         sh 'bundle exec rubocop'
         sh 'bundle exec rake db:migrate'
