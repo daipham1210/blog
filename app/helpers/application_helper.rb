@@ -42,10 +42,6 @@ module ApplicationHelper
     controller_name.eql? 'blogs'
   end
 
-  def blog_topic_path(name)
-    "/topic/#{name.underscore}"
-  end
-
   def blog_tag_path(name)
     "/tags/#{name}"
   end

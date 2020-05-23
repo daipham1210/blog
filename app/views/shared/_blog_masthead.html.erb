@@ -1,10 +1,5 @@
 <div class="blog-header">
   <div class="container">
-    <ul>
-      <% @topics.each do |topic| %>
-        <li><%= link_to topic.title, blog_topic_path(topic.title) %></li>
-      <% end %>
-    </ul>
     <span>
       <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
     </span>

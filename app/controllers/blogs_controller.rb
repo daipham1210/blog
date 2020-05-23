@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   before_action :set_tag, only: %i[new edit create update]
-  before_action :set_sidebar_topics, except: %i[destroy toggle_status]
-  access all: %i[show index tags topics], user: { except: %i[destroy new create update edit toggle_status] },
+  before_action :set_sidebar, except: %i[destroy toggle_status]
+  access all: %i[show index tags], user: { except: %i[destroy new create update edit toggle_status] },
          site_admin: :all
 
   def index
@@ -84,15 +84,6 @@ class BlogsController < ApplicationController
     render 'index'
   end
 
-  # def topics
-  #   @blogs = if logged_in?(:site_admin)
-  #              Blog.admin_list.find_topic(params[:topic], params[:page])
-  #            else
-  #              Blog.public_list.find_topic(params[:topic], params[:page])
-  #            end
-  #   render 'index'
-  # end
-
   private
 
   def set_blog
@@ -104,11 +95,10 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :body, :topic_id, :status, tag_list: [])
+    params.require(:blog).permit(:title, :body, :status, tag_list: [])
   end
 
-  def set_sidebar_topics
-    @topics        = Topic.all
+  def set_sidebar
     @tags          = Tag.all.pluck(:name)
     @popular_blogs = Blog.limit(3).order('id desc')
   end
