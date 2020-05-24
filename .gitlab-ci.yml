@@ -19,9 +19,9 @@ stages:
     - postgres:latest
   variables:
     POSTGRES_DB: test_db
-    POSTGRES_USER: runner
-    POSTGRES_PASSWORD: ''
-    RAILS_ENV: gitlab
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    RAILS_ENV: test
   before_script:
     - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
     - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -yqq nodejs
