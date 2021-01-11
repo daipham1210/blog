@@ -42,7 +42,7 @@ gem 'mini_magick', '~> 4.6'
 gem 'petergate', '~> 1.7'
 
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
-gem 'redcarpet', '~> 3.4'
+gem 'redcarpet', '~> 3.5'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
 gem 'redis', '~> 3.3', '>= 3.3.1'
